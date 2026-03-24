@@ -1,224 +1,303 @@
 export type Locale = "en" | "pt";
 
-type TranslationValue = string | string[] | Record<string, string | string[]>;
+type TranslationValue = string | string[];
 
 const translations: Record<string, Record<Locale, TranslationValue>> = {
   // Navbar
-  "nav.about": { en: "About", pt: "Sobre" },
-  "nav.technology": { en: "Technology", pt: "Tecnologia" },
-  "nav.platform": { en: "Platform", pt: "Plataforma" },
-  "nav.howItWorks": { en: "How It Works", pt: "Como Funciona" },
-  "nav.useCases": { en: "Use Cases", pt: "Casos de Uso" },
-  "nav.models": { en: "Models", pt: "Modelos" },
-  "nav.contact": { en: "Contact", pt: "Contato" },
-  "nav.requestDemo": { en: "Request Demo", pt: "Solicitar Demo" },
+  "nav.neoldms": { en: "NeoLDM's", pt: "NeoLDM's" },
+  "nav.neodata": { en: "NeoData", pt: "NeoData" },
+  "nav.howItWorks": { en: "How It Work's", pt: "Como Funciona" },
+  "nav.transformerModel": { en: "Transformer Model", pt: "Transformer Model" },
+  "nav.documentation": { en: "Documentation", pt: "Documentação" },
+  "nav.careers": { en: "Careers", pt: "Carreiras" },
+  "nav.logIn": { en: "Log In", pt: "Entrar" },
+  "nav.requestDemo": { en: "Request a Demo", pt: "Solicitar Demo" },
 
   // Hero
-  "hero.title": {
-    en: "Shaping the Next Era of Banking with AI",
-    pt: "Moldando a Próxima Era do Banking com IA",
-  },
+  "hero.title1": { en: "Unleash the Knowledge", pt: "Libere o Conhecimento" },
+  "hero.title2": { en: "Embedded in Your Data.", pt: "Embutido nos Seus Dados." },
   "hero.subtitle": {
-    en: "Turn structured and unstructured data into real-time, actionable intelligence — with enterprise-grade scalability and security.",
-    pt: "Transforme dados estruturados e não estruturados em inteligência acionável em tempo real — com escalabilidade e segurança de nível empresarial.",
+    en: "Turn structured and unstructured data into real-time, actionable intelligence.",
+    pt: "Transforme dados estruturados e não estruturados em inteligência acionável em tempo real.",
   },
-  "hero.cta1": { en: "Request a Demo", pt: "Solicitar uma Demo" },
-  "hero.cta2": { en: "Explore Technology", pt: "Explorar Tecnologia" },
+  "hero.cta": { en: "Request a Demo", pt: "Solicitar uma Demo" },
 
-  // About
-  "about.label": { en: "About NeoSpace", pt: "Sobre a NeoSpace" },
-  "about.title": { en: "The Future of Enterprise AI", pt: "O Futuro da IA Empresarial" },
-  "about.description": {
-    en: "NeoSpace builds purpose-built AI designed to handle massive datasets — whether structured or unstructured — correlating every signal across all data streams inside a single unified model. Our technology empowers financial institutions, retailers, and telecoms to unlock unprecedented value from their data.",
-    pt: "A NeoSpace constrói IA sob medida para lidar com conjuntos de dados massivos — estruturados ou não estruturados — correlacionando cada sinal em todos os fluxos de dados em um único modelo unificado. Nossa tecnologia capacita instituições financeiras, varejistas e telecoms a desbloquear valor sem precedentes de seus dados.",
+  // Meet NeoData
+  "neodata.title": { en: "Meet NeoData", pt: "Conheça o NeoData" },
+  "neodata.subtitle": {
+    en: "The data platform built by NeoSpace to power Large Data Models at scale",
+    pt: "A plataforma de dados construída pela NeoSpace para alimentar Large Data Models em escala",
   },
-  "about.stat1.value": { en: "2023", pt: "2023" },
-  "about.stat1.label": { en: "Founded", pt: "Fundada" },
-  "about.stat2.value": { en: "$2.97M", pt: "R$15M+" },
-  "about.stat2.label": { en: "Raised", pt: "Captados" },
-  "about.stat3.value": { en: "44+", pt: "44+" },
-  "about.stat3.label": { en: "Team Members", pt: "Membros do Time" },
-  "about.stat4.value": { en: "Billions", pt: "Bilhões" },
-  "about.stat4.label": { en: "Rows Processed", pt: "Linhas Processadas" },
-
-  // LDM
-  "ldm.label": { en: "Core Technology", pt: "Tecnologia Principal" },
-  "ldm.title": { en: "NeoSpace Large Data Model", pt: "NeoSpace Large Data Model" },
-  "ldm.subtitle": {
-    en: "A new class of AI model built for massive-scale, heterogeneous enterprise data — not just text or images.",
-    pt: "Uma nova classe de modelo de IA construído para dados empresariais heterogêneos em escala massiva — não apenas texto ou imagens.",
-  },
-  "ldm.feature1.title": { en: "Massive Scale", pt: "Escala Massiva" },
-  "ldm.feature1.desc": {
+  "neodata.f1.title": { en: "Built for Scale", pt: "Feito para Escala" },
+  "neodata.f1.desc": {
     en: "Purpose-built AI designed to handle massive datasets, whether structured or unstructured.",
     pt: "IA sob medida para lidar com conjuntos de dados massivos, estruturados ou não estruturados.",
   },
-  "ldm.feature2.title": { en: "Unified Model", pt: "Modelo Unificado" },
-  "ldm.feature2.desc": {
+  "neodata.f2.title": { en: "Unified Intelligence", pt: "Inteligência Unificada" },
+  "neodata.f2.desc": {
     en: "Correlates every signal across all data streams inside a single unified model.",
     pt: "Correlaciona cada sinal em todos os fluxos de dados em um único modelo unificado.",
   },
-  "ldm.feature3.title": { en: "Ultra-Low Latency", pt: "Ultra-Baixa Latência" },
-  "ldm.feature3.desc": {
+  "neodata.f3.title": { en: "Real-Time Inference", pt: "Inferência em Tempo Real" },
+  "neodata.f3.desc": {
     en: "Optimized to deliver ultra-low latency and high-throughput predictions at scale.",
     pt: "Otimizado para entregar previsões de ultra-baixa latência e alto throughput em escala.",
   },
-  "ldm.feature4.title": { en: "Self-Optimizing", pt: "Auto-Otimizante" },
-  "ldm.feature4.desc": {
+  "neodata.f4.title": { en: "Adaptive Architecture", pt: "Arquitetura Adaptativa" },
+  "neodata.f4.desc": {
     en: "Dynamic design ensures models stay general, always fresh, and highly relevant.",
     pt: "Design dinâmico garante que os modelos se mantenham gerais, sempre atualizados e altamente relevantes.",
   },
-
-  // Platform
-  "platform.label": { en: "Data Platform", pt: "Plataforma de Dados" },
-  "platform.title": { en: "NeoData Platform", pt: "Plataforma NeoData" },
-  "platform.subtitle": {
-    en: "End-to-end infrastructure for building, training, and deploying Large Data Models at enterprise scale.",
-    pt: "Infraestrutura completa para construir, treinar e implantar Large Data Models em escala empresarial.",
-  },
-  "platform.feature1.title": { en: "Data Ingestion", pt: "Ingestão de Dados" },
-  "platform.feature1.desc": {
-    en: "Ingests and organizes data across environments, creating a unified and reliable data foundation for LDM workflows.",
-    pt: "Ingere e organiza dados em todos os ambientes, criando uma base de dados unificada e confiável para workflows LDM.",
-  },
-  "platform.feature2.title": { en: "Governance & Traceability", pt: "Governança & Rastreabilidade" },
-  "platform.feature2.desc": {
-    en: "Dataset governance and traceability — ensuring every dataset is consistent, reproducible, and ready for training.",
-    pt: "Governança e rastreabilidade de datasets — garantindo que cada dataset seja consistente, reprodutível e pronto para treino.",
-  },
-  "platform.feature3.title": { en: "Model Training", pt: "Treino de Modelos" },
-  "platform.feature3.desc": {
-    en: "Train LDM models using curated datasets and continuously iterate through training runs and checkpoints.",
-    pt: "Treine modelos LDM usando datasets curados e itere continuamente através de runs de treino e checkpoints.",
-  },
-  "platform.feature4.title": { en: "Production Inference", pt: "Inferência em Produção" },
-  "platform.feature4.desc": {
-    en: "Serves real-time predictions and pushes insights directly into business systems with seamless consistency.",
-    pt: "Serve previsões em tempo real e envia insights diretamente para sistemas de negócios com consistência total.",
-  },
-  "platform.feature5.title": { en: "Scale & Performance", pt: "Escala & Performance" },
-  "platform.feature5.desc": {
-    en: "Effortlessly process billions of rows and manage petabytes of enterprise data.",
-    pt: "Processe bilhões de linhas e gerencie petabytes de dados empresariais sem esforço.",
-  },
-  "platform.feature6.title": { en: "Integration Ready", pt: "Pronto para Integração" },
-  "platform.feature6.desc": {
-    en: "Fully compatible with your BI, ML, and broader data infrastructure. Supports data warehouses, data lakes, and external APIs.",
-    pt: "Totalmente compatível com sua infraestrutura de BI, ML e dados. Suporta data warehouses, data lakes e APIs externas.",
-  },
-
-  // How It Works
-  "howItWorks.label": { en: "Workflow", pt: "Workflow" },
-  "howItWorks.title": { en: "From Data to Intelligence", pt: "De Dados a Inteligência" },
-  "howItWorks.subtitle": {
-    en: "No fragile pipelines — simply connect your data and start running.",
-    pt: "Sem pipelines frágeis — simplesmente conecte seus dados e comece.",
-  },
-  "howItWorks.step1.title": { en: "Connect Data Sources", pt: "Conectar Fontes de Dados" },
-  "howItWorks.step1.desc": {
-    en: "Integrate databases, data lakes, APIs, and streaming sources into a unified data foundation.",
-    pt: "Integre bancos de dados, data lakes, APIs e fontes de streaming em uma base de dados unificada.",
-  },
-  "howItWorks.step2.title": { en: "Pre-Training", pt: "Pré-Treino" },
-  "howItWorks.step2.desc": {
-    en: "NeoData curates and structures your data for large-scale foundational model training.",
-    pt: "NeoData curadoria e estrutura seus dados para treino de modelos fundacionais em larga escala.",
-  },
-  "howItWorks.step3.title": { en: "Post-Training", pt: "Pós-Treino" },
-  "howItWorks.step3.desc": {
-    en: "Fine-tune models with domain-specific data, evaluate performance, and iterate through checkpoints.",
-    pt: "Ajuste fino dos modelos com dados específicos do domínio, avalie performance e itere através de checkpoints.",
-  },
-  "howItWorks.step4.title": { en: "Deploy & Predict", pt: "Implantar & Predizer" },
-  "howItWorks.step4.desc": {
-    en: "Push real-time predictions directly into production systems with enterprise-grade reliability.",
-    pt: "Envie previsões em tempo real diretamente para sistemas de produção com confiabilidade empresarial.",
-  },
-
-  // Use Cases
-  "useCases.label": { en: "Use Cases", pt: "Casos de Uso" },
-  "useCases.title": { en: "AI for Every Industry", pt: "IA para Toda Indústria" },
-  "useCases.subtitle": {
+  "neodata.f5.title": { en: "Hyper-Personalization", pt: "Hiperpersonalização" },
+  "neodata.f5.desc": {
     en: "Continuously generates individualized actions for each customer interaction.",
     pt: "Gera continuamente ações individualizadas para cada interação com o cliente.",
   },
-  "useCases.banking.title": { en: "Banking & Finance", pt: "Banking & Finanças" },
-  "useCases.banking.items": {
-    en: ["Fraud Detection", "Credit Scoring", "Hyper-Personalized Offers", "Churn Modeling", "Risk Assessment"],
-    pt: ["Detecção de Fraude", "Score de Crédito", "Ofertas Hiperpersonalizadas", "Modelagem de Churn", "Avaliação de Risco"],
+  "neodata.f6.title": { en: "Seamless Integration", pt: "Integração Fluida" },
+  "neodata.f6.desc": {
+    en: "No fragile pipelines required — simply connect your data and start running.",
+    pt: "Sem pipelines frágeis — simplesmente conecte seus dados e comece.",
   },
-  "useCases.retail.title": { en: "Retail", pt: "Varejo" },
-  "useCases.retail.items": {
-    en: ["Dynamic Pricing", "Personalized Recommendations", "Inventory Optimization", "Customer Segmentation"],
-    pt: ["Precificação Dinâmica", "Recomendações Personalizadas", "Otimização de Estoque", "Segmentação de Clientes"],
+
+  // How It Works
+  "howItWorks.title": { en: "How NeoData works.", pt: "Como o NeoData funciona." },
+  "howItWorks.subtitle": {
+    en: "A unified workflow from raw data to real-time AI",
+    pt: "Um workflow unificado de dados brutos até IA em tempo real",
+  },
+  "howItWorks.step1.title": { en: "Connect your", pt: "Conecte suas" },
+  "howItWorks.step1.highlight": { en: "data sources", pt: "fontes de dados" },
+  "howItWorks.step1.sub": {
+    en: "Including data warehouses, data lakes, and external APIs.",
+    pt: "Incluindo data warehouses, data lakes e APIs externas.",
+  },
+  "howItWorks.step1.desc": {
+    en: "NeoData ingests and organizes data across environments, creating a unified and reliable data foundation for LDM workflows.",
+    pt: "NeoData ingere e organiza dados em todos os ambientes, criando uma base de dados unificada e confiável para workflows LDM.",
+  },
+  "howItWorks.step2.title": { en: "Create your", pt: "Crie seus" },
+  "howItWorks.step2.highlight": { en: "datasets", pt: "datasets" },
+  "howItWorks.step2.sub": {
+    en: "Create your own datasets using connected data sources, tailored to your specific use cases and intelligence needs.",
+    pt: "Crie seus próprios datasets usando fontes de dados conectadas, adaptados aos seus casos de uso e necessidades de inteligência.",
+  },
+  "howItWorks.step2.desc": {
+    en: "NeoData enables dataset, governance, and traceability — ensuring every dataset is consistent, reproducible, and ready for training.",
+    pt: "NeoData habilita governança e rastreabilidade de datasets — garantindo que cada dataset seja consistente, reprodutível e pronto para treino.",
+  },
+  "howItWorks.step3.title": { en: "Train your", pt: "Treine seu" },
+  "howItWorks.step3.highlight": { en: "model", pt: "modelo" },
+  "howItWorks.step3.sub": {
+    en: "Train LDM models using curated datasets and continuously iterate through training runs and checkpoints.",
+    pt: "Treine modelos LDM usando datasets curados e itere continuamente através de runs de treino e checkpoints.",
+  },
+  "howItWorks.step3.desc": {
+    en: "NeoData keeps data, training, and evaluation tightly connected, enabling faster experimentation and higher-quality model outcomes.",
+    pt: "NeoData mantém dados, treino e avaliação fortemente conectados, permitindo experimentação mais rápida e resultados de maior qualidade.",
+  },
+  "howItWorks.step4.title": { en: "Serve real-time", pt: "Sirva" },
+  "howItWorks.step4.highlight": { en: "predictions", pt: "previsões em tempo real" },
+  "howItWorks.step4.sub": {
+    en: "Serve real-time predictions and push insights directly into your business systems.",
+    pt: "Sirva previsões em tempo real e envie insights diretamente para seus sistemas de negócios.",
+  },
+  "howItWorks.step4.desc": {
+    en: "NeoData ensures seamless consistency between training data and production inference, enabling reliable, scalable, and production-ready AI.",
+    pt: "NeoData garante consistência total entre dados de treino e inferência em produção, habilitando IA confiável, escalável e pronta para produção.",
+  },
+  "howItWorks.learnMore": { en: "Learn More", pt: "Saiba Mais" },
+
+  // Enterprise Scale
+  "enterprise.title1": { en: "NeoData is purpose-built for", pt: "NeoData é construído para" },
+  "enterprise.title2": { en: "enterprise-grade scale", pt: "escala empresarial" },
+  "enterprise.f1.title": { en: "Massive Scale", pt: "Escala Massiva" },
+  "enterprise.f1.desc": {
+    en: "Effortlessly process billions of rows and manage petabytes of enterprise data.",
+    pt: "Processe bilhões de linhas e gerencie petabytes de dados empresariais sem esforço.",
+  },
+  "enterprise.f2.title": { en: "Unified Data", pt: "Dados Unificados" },
+  "enterprise.f2.desc": {
+    en: "Structured or unstructured, all data types modeled together in one system.",
+    pt: "Estruturados ou não estruturados, todos os tipos de dados modelados juntos em um sistema.",
+  },
+  "enterprise.f3.title": { en: "Adaptive Learning", pt: "Aprendizado Adaptativo" },
+  "enterprise.f3.desc": {
+    en: "Self-optimizing models evolve continuously with every new data stream.",
+    pt: "Modelos auto-otimizantes evoluem continuamente com cada novo fluxo de dados.",
+  },
+  "enterprise.f4.title": { en: "Enterprise Security", pt: "Segurança Empresarial" },
+  "enterprise.f4.desc": {
+    en: "SOC 2, GDPR compliance, plus governance with advanced access control.",
+    pt: "SOC 2, GDPR compliance, além de governança com controle de acesso avançado.",
+  },
+  "enterprise.f5.title": { en: "Seamless Integration", pt: "Integração Fluida" },
+  "enterprise.f5.desc": {
+    en: "Fully compatible with your BI, ML, and broader data infrastructure.",
+    pt: "Totalmente compatível com sua infraestrutura de BI, ML e dados.",
+  },
+
+  // Use Cases
+  "useCases.title1": { en: "Deploy LDM's anywhere data is your", pt: "Implante LDM's onde quer que dados sejam sua" },
+  "useCases.title2": { en: "competitive advantage", pt: "vantagem competitiva" },
+  "useCases.banking.title": { en: "Financial Services", pt: "Serviços Financeiros" },
+  "useCases.banking.desc": {
+    en: "Fraud detection, credit scoring, hyper-personalized offers, churn modeling, and more.",
+    pt: "Detecção de fraude, score de crédito, ofertas hiperpersonalizadas, modelagem de churn e mais.",
+  },
+  "useCases.retail.title": { en: "Retail and E-commerce", pt: "Varejo e E-commerce" },
+  "useCases.retail.desc": {
+    en: "Dynamic pricing, personalized recommendations and more.",
+    pt: "Precificação dinâmica, recomendações personalizadas e mais.",
   },
   "useCases.telecom.title": { en: "Telecom", pt: "Telecom" },
-  "useCases.telecom.items": {
-    en: ["Next Best Offer", "Next Best Action", "Fraud Detection", "Network Optimization", "Predictive Maintenance"],
-    pt: ["Next Best Offer", "Next Best Action", "Detecção de Fraude", "Otimização de Rede", "Manutenção Preditiva"],
+  "useCases.telecom.desc": {
+    en: "Next Best Offer/Action, fraud detection, network optimization, predictive maintenance and more.",
+    pt: "Next Best Offer/Action, detecção de fraude, otimização de rede, manutenção preditiva e mais.",
   },
 
-  // Models
-  "models.label": { en: "AI Models", pt: "Modelos de IA" },
-  "models.title": { en: "Specialized Foundation Models", pt: "Modelos Fundacionais Especializados" },
-  "models.subtitle": {
-    en: "Custom large language models purpose-built for enterprise transformation.",
-    pt: "Modelos de linguagem customizados, construídos sob medida para transformação empresarial.",
+  // Results
+  "results.title1": { en: "What our partners achieve with", pt: "O que nossos parceiros alcançam com a" },
+  "results.title2": { en: "NeoSpace", pt: "NeoSpace" },
+  "results.s1.label": { en: "Prediction Accuracy", pt: "Precisão de Previsão" },
+  "results.s1.value": { en: "2X", pt: "2X" },
+  "results.s1.desc": {
+    en: "More accurate predictions powered by our advanced data modeling approach.",
+    pt: "Previsões mais precisas impulsionadas por nossa abordagem avançada de modelagem de dados.",
   },
-  "models.neocredit.title": { en: "NeoCredit", pt: "NeoCredit" },
-  "models.neocredit.desc": {
-    en: "AI model that identifies suitable customers for credit offers and supports loan lifecycle management to reduce delinquency.",
-    pt: "Modelo de IA que identifica clientes adequados para ofertas de crédito e apoia a gestão do ciclo de vida de empréstimos para reduzir inadimplência.",
+  "results.s2.label": { en: "Training Efficiency", pt: "Eficiência de Treino" },
+  "results.s2.value": { en: "400%", pt: "400%" },
+  "results.s2.desc": {
+    en: "Faster model training cycles, accelerating experimentation and deployment.",
+    pt: "Ciclos de treino mais rápidos, acelerando experimentação e implantação.",
   },
-  "models.neofin.title": { en: "NeoFin", pt: "NeoFin" },
-  "models.neofin.desc": {
-    en: "Large Financial Model that leverages customer data to enable targeted actions like personalized recommendations and reminders.",
-    pt: "Large Financial Model que utiliza dados do cliente para ações direcionadas como recomendações personalizadas e lembretes.",
+  "results.s3.label": { en: "Inference Latency", pt: "Latência de Inferência" },
+  "results.s3.value": { en: "5X", pt: "5X" },
+  "results.s3.desc": {
+    en: "Even faster inference speeds deliver instant responses across massive datasets.",
+    pt: "Velocidades de inferência ainda mais rápidas entregam respostas instantâneas em conjuntos de dados massivos.",
   },
-  "models.neolang.title": { en: "NeoLang", pt: "NeoLang" },
-  "models.neolang.desc": {
-    en: "Expert LLM for complex customer support interactions, delivering intelligent and contextual responses at scale.",
-    pt: "LLM especialista para interações complexas de suporte ao cliente, entregando respostas inteligentes e contextuais em escala.",
+  "results.s4.label": { en: "Real-time scale", pt: "Escala em Tempo Real" },
+  "results.s4.value": { en: "10B+", pt: "10B+" },
+  "results.s4.desc": {
+    en: "Predictions processed in real-time, scaling effortlessly to billions of events.",
+    pt: "Previsões processadas em tempo real, escalando sem esforço para bilhões de eventos.",
   },
 
-  // Security
-  "security.label": { en: "Security", pt: "Segurança" },
-  "security.title": { en: "Enterprise-Grade Security", pt: "Segurança de Nível Empresarial" },
-  "security.subtitle": {
-    en: "Built with compliance and governance at its core.",
-    pt: "Construído com compliance e governança em seu núcleo.",
+  // FAQ
+  "faq.title1": { en: "Frequently", pt: "Perguntas" },
+  "faq.title2": { en: "Asked Questions", pt: "Frequentes" },
+  "faq.q1": { en: "What's a Large Data Model?", pt: "O que é um Large Data Model?" },
+  "faq.a1": {
+    en: "A new class of AI model built for massive-scale, heterogenous enterprise data - not just text or images.",
+    pt: "Uma nova classe de modelo de IA construído para dados empresariais heterogêneos em escala massiva - não apenas texto ou imagens.",
   },
-  "security.soc2": { en: "SOC 2 Compliant", pt: "SOC 2 Compliance" },
-  "security.gdpr": { en: "GDPR Compliant", pt: "GDPR Compliance" },
-  "security.encryption": { en: "End-to-End Encryption", pt: "Criptografia Ponta a Ponta" },
-  "security.access": { en: "Advanced Access Control", pt: "Controle de Acesso Avançado" },
-  "security.audit": { en: "Full Audit Trail", pt: "Trilha de Auditoria Completa" },
-  "security.governance": { en: "Data Governance", pt: "Governança de Dados" },
+  "faq.q2": { en: "Can it connect to my existing data stack?", pt: "Pode conectar ao meu stack de dados existente?" },
+  "faq.a2": {
+    en: "Yes. We integrate with all major warehouses, lakes, and API systems.",
+    pt: "Sim. Integramos com todos os principais warehouses, lakes e sistemas de API.",
+  },
+  "faq.q3": { en: "Is it secure and compliant?", pt: "É seguro e compliance?" },
+  "faq.a3": {
+    en: "Absolutely. We offer comprehensive security and compliance certifications.",
+    pt: "Absolutamente. Oferecemos certificações abrangentes de segurança e compliance.",
+  },
 
-  // CTA
-  "cta.title": { en: "Ready to Transform Your Data?", pt: "Pronto para Transformar seus Dados?" },
-  "cta.subtitle": {
-    en: "Get started with NeoSpace and unlock the full potential of your enterprise data.",
-    pt: "Comece com a NeoSpace e desbloqueie todo o potencial dos seus dados empresariais.",
-  },
-  "cta.placeholder": { en: "Enter your email", pt: "Digite seu email" },
-  "cta.button": { en: "Request Demo", pt: "Solicitar Demo" },
-  "cta.contact": { en: "Or contact us directly", pt: "Ou entre em contato diretamente" },
+  // Unlock CTA
+  "unlock.title1": { en: "Unlock the value", pt: "Desbloqueie o valor" },
+  "unlock.title2": { en: "hidden in your data", pt: "escondido nos seus dados" },
+  "unlock.cta": { en: "Request a Demo", pt: "Solicitar Demo" },
 
   // Footer
-  "footer.description": {
-    en: "Shaping the Next Era of Banking with AI. Purpose-built AI for massive-scale enterprise data.",
-    pt: "Moldando a Próxima Era do Banking com IA. IA sob medida para dados empresariais em escala massiva.",
-  },
-  "footer.product": { en: "Product", pt: "Produto" },
-  "footer.company": { en: "Company", pt: "Empresa" },
-  "footer.legal": { en: "Legal", pt: "Legal" },
+  "footer.neodata": { en: "NeoData", pt: "NeoData" },
+  "footer.neoldms": { en: "NeoLDM's", pt: "NeoLDM's" },
+  "footer.howItWorks": { en: "How it works", pt: "Como funciona" },
+  "footer.support": { en: "Support", pt: "Suporte" },
+  "footer.requestDemo": { en: "Request a Demo", pt: "Solicitar Demo" },
   "footer.privacy": { en: "Privacy Policy", pt: "Política de Privacidade" },
-  "footer.terms": { en: "Terms of Service", pt: "Termos de Serviço" },
-  "footer.careers": { en: "Careers", pt: "Carreiras" },
-  "footer.blog": { en: "Blog", pt: "Blog" },
   "footer.docs": { en: "Documentation", pt: "Documentação" },
-  "footer.rights": { en: "All rights reserved.", pt: "Todos os direitos reservados." },
+  "footer.copyright": {
+    en: "Copyright © 2026 NeoSpace AI. All rights reserved.",
+    pt: "Copyright © 2026 NeoSpace AI. Todos os direitos reservados.",
+  },
+
+  // Careers Page
+  "careers.hero.title1": { en: "Build the", pt: "Construa o" },
+  "careers.hero.title2": { en: "future of AI with us", pt: "futuro da IA conosco" },
+  "careers.hero.subtitle": {
+    en: "We work at the intersection of data, AI, and real-world systems — solving complex problems for companies operating at massive scale.",
+    pt: "Trabalhamos na interseção de dados, IA e sistemas do mundo real — resolvendo problemas complexos para empresas que operam em escala massiva.",
+  },
+  "careers.whoWeAre": { en: "Who we are", pt: "Quem somos" },
+  "careers.whoWeAre.desc": {
+    en: "NeoSpace is an AI company focused on creating foundational models powered by Large Data Models. Our work combines model development with a purpose-built training and management platform, allowing us to iterate faster, maintain control over data and experiments, and scale models with confidence.",
+    pt: "NeoSpace é uma empresa de IA focada em criar modelos fundacionais alimentados por Large Data Models. Nosso trabalho combina desenvolvimento de modelos com uma plataforma de treino e gestão sob medida, permitindo iterar mais rápido, manter controle sobre dados e experimentos, e escalar modelos com confiança.",
+  },
+  "careers.mission.title": { en: "Our Mission", pt: "Nossa Missão" },
+  "careers.mission.desc": {
+    en: "We build artificial intelligence that creates real impact, with ethical standards, strong security, and practical use in complex, real-world environments today.",
+    pt: "Construímos inteligência artificial que cria impacto real, com padrões éticos, segurança forte e uso prático em ambientes complexos do mundo real hoje.",
+  },
+  "careers.vision.title": { en: "Our Vision", pt: "Nossa Visão" },
+  "careers.vision.desc": {
+    en: "We work to position Brazil as a global reference in artificial intelligence by developing world-class models, technology, and talent with global reach at scale.",
+    pt: "Trabalhamos para posicionar o Brasil como referência global em inteligência artificial, desenvolvendo modelos, tecnologia e talentos de classe mundial com alcance global em escala.",
+  },
+  "careers.values.title": { en: "Our Values", pt: "Nossos Valores" },
+  "careers.values.desc": {
+    en: "We pursue technical excellence with accountability and end-to-end ownership, acting proactively to deliver reliable outcomes from data to real-world use cases!!",
+    pt: "Buscamos excelência técnica com responsabilidade e ownership ponta a ponta, agindo proativamente para entregar resultados confiáveis de dados a casos de uso do mundo real!!",
+  },
+  "careers.whyWork.title1": { en: "Why work at NeoSpace", pt: "Por que trabalhar na NeoSpace" },
+  "careers.whyWork.title2": { en: "Where models are actually built", pt: "Onde modelos são realmente construídos" },
+  "careers.whyWork.desc": {
+    en: "At NeoSpace, you won't be fine-tuning off-the-shelf models or working on superficial AI layers.",
+    pt: "Na NeoSpace, você não vai ajustar modelos prontos ou trabalhar em camadas superficiais de IA.",
+  },
+  "careers.card1.title": { en: "Training LDM-based foundational models", pt: "Treinando modelos fundacionais baseados em LDM" },
+  "careers.card1.desc": {
+    en: "Work directly on training foundational models using Large Data Models — from data preparation to training runs and evaluation.",
+    pt: "Trabalhe diretamente no treino de modelos fundacionais usando Large Data Models — da preparação de dados a runs de treino e avaliação.",
+  },
+  "careers.card2.title": { en: "Designing datasets and training strategies", pt: "Projetando datasets e estratégias de treino" },
+  "careers.card2.desc": {
+    en: "Shape how models learn by designing datasets, training strategies, and experimentation workflows aligned with real-world use cases.",
+    pt: "Molde como os modelos aprendem projetando datasets, estratégias de treino e workflows de experimentação alinhados com casos de uso do mundo real.",
+  },
+  "careers.card3.title": { en: "Building the internal platform that manages model lifecycles", pt: "Construindo a plataforma interna de gestão de ciclo de vida de modelos" },
+  "careers.card3.desc": {
+    en: "Develop the internal platform that supports model training, versioning, orchestration, and lifecycle management at scale.",
+    pt: "Desenvolva a plataforma interna que suporta treino de modelos, versionamento, orquestração e gestão de ciclo de vida em escala.",
+  },
+  "careers.card4.title": { en: "Solving real engineering challenges", pt: "Resolvendo desafios reais de engenharia" },
+  "careers.card4.desc": {
+    en: "Tackle challenges around data complexity, model performance, scalability, and control.",
+    pt: "Enfrente desafios de complexidade de dados, performance de modelos, escalabilidade e controle.",
+  },
+  "careers.positions.title": { en: "Open positions", pt: "Vagas abertas" },
+  "careers.positions.desc1": {
+    en: "We're building a team to push the boundaries of foundational AI models.",
+    pt: "Estamos construindo um time para expandir os limites de modelos fundacionais de IA.",
+  },
+  "careers.positions.desc2": {
+    en: "If you want to work on model training, data pipelines, or the platforms that support them — and do it with high technical standards — we want to hear from you.",
+    pt: "Se você quer trabalhar em treino de modelos, pipelines de dados ou as plataformas que os suportam — com altos padrões técnicos — queremos ouvir de você.",
+  },
+  "careers.positions.type": { en: "On-site (negotiable)", pt: "Presencial (negociável)" },
+  "careers.talent.title1": { en: "Join NeoSpace", pt: "Entre para o" },
+  "careers.talent.title2": { en: "Talent Pool", pt: "Talent Pool da NeoSpace" },
+  "careers.talent.desc": {
+    en: "We're always looking for talented people who want to shape the future of data, AI, and intelligent decision-making. Submit your profile to our talent pool and be considered for future opportunities at NeoSpace.",
+    pt: "Estamos sempre procurando pessoas talentosas que querem moldar o futuro de dados, IA e tomada de decisão inteligente. Envie seu perfil para nosso talent pool e seja considerado para futuras oportunidades na NeoSpace.",
+  },
+  "careers.form.firstName": { en: "First Name", pt: "Nome" },
+  "careers.form.lastName": { en: "Last Name", pt: "Sobrenome" },
+  "careers.form.email": { en: "Your Email", pt: "Seu Email" },
+  "careers.form.phone": { en: "Phone Number", pt: "Telefone" },
+  "careers.form.area": { en: "Area of Activity", pt: "Área de Atuação" },
+  "careers.form.linkedin": { en: "Linkedin", pt: "Linkedin" },
+  "careers.form.position": { en: "Position Applying For", pt: "Vaga de Interesse" },
+  "careers.form.selectPosition": { en: "Select a position", pt: "Selecione uma vaga" },
+  "careers.form.submit": { en: "Submit", pt: "Enviar" },
 };
 
 export function getTranslation(key: string, locale: Locale): TranslationValue {

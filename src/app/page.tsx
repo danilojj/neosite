@@ -4,14 +4,13 @@ import { LanguageProvider } from "@/components/providers/LanguageProvider";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
-import About from "@/components/sections/About";
-import LDM from "@/components/sections/LDM";
-import Platform from "@/components/sections/Platform";
+import MeetNeoData from "@/components/sections/MeetNeoData";
 import HowItWorks from "@/components/sections/HowItWorks";
+import EnterpriseScale from "@/components/sections/EnterpriseScale";
 import UseCases from "@/components/sections/UseCases";
-import Models from "@/components/sections/Models";
-import Security from "@/components/sections/Security";
-import CTA from "@/components/sections/CTA";
+import Results from "@/components/sections/Results";
+import FAQ from "@/components/sections/FAQ";
+import UnlockCTA from "@/components/sections/UnlockCTA";
 
 export default function Home() {
   return (
@@ -19,14 +18,13 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <About />
-        <LDM />
-        <Platform />
+        <MeetNeoData />
         <HowItWorks />
+        <EnterpriseScale />
         <UseCases />
-        <Models />
-        <Security />
-        <CTA />
+        <Results />
+        <FAQ />
+        <UnlockCTA />
       </main>
       <Footer />
     </LanguageProvider>
