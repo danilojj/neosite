@@ -11,6 +11,7 @@ import UseCases from "@/components/sections/UseCases";
 import Results from "@/components/sections/Results";
 import FAQ from "@/components/sections/FAQ";
 import UnlockCTA from "@/components/sections/UnlockCTA";
+import AnimatedDivider from "@/components/animations/AnimatedDivider";
 
 export default function Home() {
   return (
@@ -18,10 +19,14 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <AnimatedDivider />
         <MeetNeoData />
+        <AnimatedDivider />
         <HowItWorks />
+        <AnimatedDivider />
         <EnterpriseScale />
         <UseCases />
+        <AnimatedDivider />
         <Results />
         <FAQ />
         <UnlockCTA />

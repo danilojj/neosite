@@ -28,6 +28,20 @@ export default function MeetNeoData() {
       <div className="absolute inset-0 bg-grid" />
       <FloatingNodes />
 
+      {/* Animated background pulses */}
+      <motion.div
+        className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full pointer-events-none"
+        style={{ background: "radial-gradient(circle, rgba(59,130,246,0.04), transparent 70%)" }}
+        animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.6, 0.3] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full pointer-events-none"
+        style={{ background: "radial-gradient(circle, rgba(6,182,212,0.04), transparent 70%)" }}
+        animate={{ scale: [1.2, 1, 1.2], opacity: [0.3, 0.5, 0.3] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+      />
+
       <div className="relative max-w-7xl mx-auto px-6">
         <SectionHeading
           label="NeoData"
@@ -47,9 +61,18 @@ export default function MeetNeoData() {
             return (
               <GlowCard key={i} glowColor={colors[i]} custom={i}>
                 <div className="flex items-start gap-4">
-                  <div className={`shrink-0 w-12 h-12 rounded-full border ${colors[i] === "blue" ? "border-neo-blue/20" : "border-neo-cyan/20"} flex items-center justify-center`}>
-                    <Icon className={colors[i] === "blue" ? "text-neo-blue" : "text-neo-cyan"} size={22} />
-                  </div>
+                  <motion.div
+                    className={`shrink-0 w-12 h-12 rounded-full border ${colors[i] === "blue" ? "border-neo-blue/20" : "border-neo-cyan/20"} flex items-center justify-center`}
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <motion.div
+                      animate={{ rotate: [0, 360] }}
+                      transition={{ duration: 20 + i * 5, repeat: Infinity, ease: "linear" }}
+                    >
+                      <Icon className={colors[i] === "blue" ? "text-neo-blue" : "text-neo-cyan"} size={22} />
+                    </motion.div>
+                  </motion.div>
                   <div>
                     <h3 className={`text-base font-semibold mb-2 ${colors[i] === "blue" ? "text-neo-blue" : "text-neo-cyan"}`}>
                       {t(feature.titleKey)}

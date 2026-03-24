@@ -24,6 +24,18 @@ export default function EnterpriseScale() {
       <div className="absolute inset-0 bg-dots" />
       <GradientOrb color="blue" size="lg" className="-left-32 top-1/3 opacity-15" />
 
+      {/* Floating geometric shapes */}
+      <motion.div
+        className="absolute top-20 right-20 w-16 h-16 border border-neo-blue/10 rounded-lg pointer-events-none"
+        animate={{ rotate: [0, 90, 180, 270, 360], y: [0, -10, 0] }}
+        transition={{ rotate: { duration: 20, repeat: Infinity, ease: "linear" }, y: { duration: 5, repeat: Infinity, ease: "easeInOut" } }}
+      />
+      <motion.div
+        className="absolute bottom-32 left-40 w-10 h-10 border border-neo-cyan/10 rounded-full pointer-events-none"
+        animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.6, 0.3] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+      />
+
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Left: title */}
@@ -52,11 +64,14 @@ export default function EnterpriseScale() {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
-                  className="flex items-start gap-5"
+                  className="group flex items-start gap-5"
                 >
-                  <div className="shrink-0 w-12 h-12 rounded-xl bg-neo-card border border-neo-border flex items-center justify-center">
+                  <motion.div
+                    className="shrink-0 w-12 h-12 rounded-xl bg-neo-card border border-neo-border flex items-center justify-center group-hover:border-neo-blue/40 transition-colors duration-300"
+                    whileHover={{ scale: 1.05 }}
+                  >
                     <Icon className="text-neo-blue" size={22} />
-                  </div>
+                  </motion.div>
                   <div>
                     <h3 className="text-base font-semibold text-neo-blue mb-1">
                       {t(feature.titleKey)}
@@ -65,6 +80,13 @@ export default function EnterpriseScale() {
                       {t(feature.descKey)}
                     </p>
                   </div>
+                  {/* Animated line connector */}
+                  <motion.div
+                    className="hidden lg:block absolute right-0 w-1 h-8 bg-gradient-to-b from-neo-blue/20 to-transparent rounded-full"
+                    style={{ top: `${i * 72 + 16}px` }}
+                    animate={{ opacity: [0.2, 0.5, 0.2] }}
+                    transition={{ duration: 3, delay: i * 0.5, repeat: Infinity }}
+                  />
                 </motion.div>
               );
             })}
