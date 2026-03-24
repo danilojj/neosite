@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import LanguageToggle from "@/components/ui/LanguageToggle";
 import Button from "@/components/ui/Button";
@@ -14,7 +15,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { t } = useLanguage();
-  const activeId = useScrollSpy(NAV_ITEMS.map((n) => n.id));
+  const activeId = useScrollSpy(NAV_ITEMS.filter((n) => n.type === "scroll").map((n) => n.id));
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -22,12 +23,12 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollTo = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-      setMobileOpen(false);
+  const handleNav = (item: (typeof NAV_ITEMS)[number]) => {
+    if (item.type === "scroll") {
+      const el = document.getElementById(item.id);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
     }
+    setMobileOpen(false);
   };
 
   return (
@@ -37,9 +38,7 @@ export default function Navbar() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled
-          ? "glass shadow-lg shadow-black/20"
-          : "bg-transparent"
+        scrolled ? "glass shadow-lg shadow-black/20" : "bg-transparent"
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -49,40 +48,57 @@ export default function Navbar() {
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-neo-blue to-neo-cyan flex items-center justify-center">
               <span className="text-white font-bold text-sm">N</span>
             </div>
-            <span className="text-xl font-bold text-neo-text">
-              Neo<span className="text-neo-blue">Space</span>
+            <span className="text-lg font-bold tracking-wider text-neo-text uppercase">
+              NeoSpace
             </span>
           </button>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-1">
-            {NAV_ITEMS.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollTo(item.id)}
-                className={cn(
-                  "px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200 cursor-pointer",
-                  activeId === item.id
-                    ? "text-neo-blue bg-neo-blue/10"
-                    : "text-neo-muted hover:text-neo-text hover:bg-white/5"
-                )}
-              >
-                {t(item.labelKey)}
-              </button>
-            ))}
+          <div className="hidden lg:flex items-center gap-1">
+            {NAV_ITEMS.map((item) =>
+              item.type === "link" ? (
+                <Link
+                  key={item.id}
+                  href={"href" in item ? item.href : "#"}
+                  target={("href" in item && item.href.startsWith("http")) ? "_blank" : undefined}
+                  className="px-3 py-2 text-sm font-medium rounded-lg text-neo-muted hover:text-neo-text hover:bg-white/5 transition-colors"
+                >
+                  {t(item.labelKey)}
+                </Link>
+              ) : (
+                <button
+                  key={item.id}
+                  onClick={() => handleNav(item)}
+                  className={cn(
+                    "px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200 cursor-pointer",
+                    activeId === item.id
+                      ? "text-neo-blue bg-neo-blue/10"
+                      : "text-neo-muted hover:text-neo-text hover:bg-white/5"
+                  )}
+                >
+                  {t(item.labelKey)}
+                </button>
+              )
+            )}
           </div>
 
           {/* Right side */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3">
             <LanguageToggle />
-            <Button size="sm" onClick={() => scrollTo("contact")}>
+            <Button variant="outline" size="sm">
+              {t("nav.logIn")}
+            </Button>
+            <Button size="sm" onClick={() => {
+              const el = document.getElementById("unlock-cta");
+              if (el) el.scrollIntoView({ behavior: "smooth" });
+            }}>
               {t("nav.requestDemo")}
             </Button>
           </div>
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden p-2 text-neo-muted hover:text-neo-text cursor-pointer"
+            className="lg:hidden p-2 text-neo-muted hover:text-neo-text cursor-pointer"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -97,28 +113,38 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass border-t border-neo-border overflow-hidden"
+            className="lg:hidden glass border-t border-neo-border overflow-hidden"
           >
             <div className="px-4 py-4 space-y-1">
-              {NAV_ITEMS.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollTo(item.id)}
-                  className={cn(
-                    "block w-full text-left px-4 py-3 text-sm font-medium rounded-lg transition-colors cursor-pointer",
-                    activeId === item.id
-                      ? "text-neo-blue bg-neo-blue/10"
-                      : "text-neo-muted hover:text-neo-text hover:bg-white/5"
-                  )}
-                >
-                  {t(item.labelKey)}
-                </button>
-              ))}
+              {NAV_ITEMS.map((item) =>
+                item.type === "link" ? (
+                  <Link
+                    key={item.id}
+                    href={"href" in item ? item.href : "#"}
+                    onClick={() => setMobileOpen(false)}
+                    className="block px-4 py-3 text-sm font-medium rounded-lg text-neo-muted hover:text-neo-text hover:bg-white/5 transition-colors"
+                  >
+                    {t(item.labelKey)}
+                  </Link>
+                ) : (
+                  <button
+                    key={item.id}
+                    onClick={() => handleNav(item)}
+                    className={cn(
+                      "block w-full text-left px-4 py-3 text-sm font-medium rounded-lg transition-colors cursor-pointer",
+                      activeId === item.id
+                        ? "text-neo-blue bg-neo-blue/10"
+                        : "text-neo-muted hover:text-neo-text hover:bg-white/5"
+                    )}
+                  >
+                    {t(item.labelKey)}
+                  </button>
+                )
+              )}
               <div className="pt-3 flex items-center gap-3">
                 <LanguageToggle />
-                <Button size="sm" className="flex-1" onClick={() => scrollTo("contact")}>
-                  {t("nav.requestDemo")}
-                </Button>
+                <Button variant="outline" size="sm">{t("nav.logIn")}</Button>
+                <Button size="sm" className="flex-1">{t("nav.requestDemo")}</Button>
               </div>
             </div>
           </motion.div>

@@ -2,31 +2,37 @@
 
 import { motion } from "framer-motion";
 import { Building2, ShoppingBag, Radio } from "lucide-react";
-import SectionHeading from "@/components/ui/SectionHeading";
 import GlowCard from "@/components/ui/GlowCard";
 import { useLanguage } from "@/components/providers/LanguageProvider";
-import { staggerContainer } from "@/lib/animations";
+import { fadeUp, staggerContainer } from "@/lib/animations";
 
 const icons = [Building2, ShoppingBag, Radio];
 const colors = ["blue", "cyan", "blue"] as const;
 
 export default function UseCases() {
-  const { t, tArray } = useLanguage();
+  const { t } = useLanguage();
 
   const cases = [
-    { titleKey: "useCases.banking.title", itemsKey: "useCases.banking.items" },
-    { titleKey: "useCases.retail.title", itemsKey: "useCases.retail.items" },
-    { titleKey: "useCases.telecom.title", itemsKey: "useCases.telecom.items" },
+    { titleKey: "useCases.banking.title", descKey: "useCases.banking.desc" },
+    { titleKey: "useCases.retail.title", descKey: "useCases.retail.desc" },
+    { titleKey: "useCases.telecom.title", descKey: "useCases.telecom.desc" },
   ];
 
   return (
     <section id="use-cases" className="relative py-24 md:py-32 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <SectionHeading
-          label={t("useCases.label")}
-          title={t("useCases.title")}
-          subtitle={t("useCases.subtitle")}
-        />
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-neo-text leading-tight">
+            {t("useCases.title1")}{" "}
+            <span className="text-neo-blue">{t("useCases.title2")}</span>
+          </h2>
+          <div className="mt-6 w-16 h-0.5 bg-gradient-to-r from-neo-blue to-neo-cyan rounded-full" />
+        </motion.div>
 
         <motion.div
           variants={staggerContainer}
@@ -37,24 +43,22 @@ export default function UseCases() {
         >
           {cases.map((useCase, i) => {
             const Icon = icons[i];
-            const items = tArray(useCase.itemsKey);
-
             return (
               <GlowCard key={i} glowColor={colors[i]} custom={i} className="h-full">
-                <div className="mb-6 w-14 h-14 rounded-xl bg-neo-blue/10 flex items-center justify-center">
-                  <Icon className={colors[i] === "blue" ? "text-neo-blue" : "text-neo-cyan"} size={28} />
+                {/* Image placeholder */}
+                <div className="relative w-full aspect-[16/10] rounded-lg overflow-hidden mb-6 bg-neo-elevated/30">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Icon className="text-neo-muted/20" size={48} />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-neo-card/80 to-transparent" />
                 </div>
-                <h3 className="text-xl font-semibold text-neo-text mb-4">
+
+                <h3 className={`text-base font-semibold mb-3 ${colors[i] === "blue" ? "text-neo-blue" : "text-neo-cyan"}`}>
                   {t(useCase.titleKey)}
                 </h3>
-                <ul className="space-y-3">
-                  {items.map((item, j) => (
-                    <li key={j} className="flex items-center gap-3 text-sm text-neo-muted">
-                      <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${colors[i] === "blue" ? "bg-neo-blue" : "bg-neo-cyan"}`} />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                <p className="text-sm text-neo-muted leading-relaxed">
+                  {t(useCase.descKey)}
+                </p>
               </GlowCard>
             );
           })}
